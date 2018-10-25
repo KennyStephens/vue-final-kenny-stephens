@@ -1,8 +1,10 @@
 <template>
-  <div class="home">
-    <HelloWorld msg="Welcome to your Vue App!"/>
-  </div>
+    <div>
+        hello
+    </div>
 </template>
+<<<<<<< HEAD
+=======
 
 <script>
 // @ is an alias to /src
@@ -15,3 +17,4 @@ export default {
   }
 };
 </script>
+>>>>>>> 0e16868b9a336452eb1eb826ec16147444a3967b
