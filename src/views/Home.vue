@@ -1,20 +1,21 @@
 <template>
-    <div>
-        hello
+    <div class="hero is">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title is-1">hello</h1>
+            </div>
+        </div>
     </div>
 </template>
-<<<<<<< HEAD
-=======
 
 <script>
-// @ is an alias to /src
+    export default {
 
-
-export default {
-  name: "home",
-  components: {
-  
-  }
-};
+    }
 </script>
->>>>>>> 0e16868b9a336452eb1eb826ec16147444a3967b
+
+<style scoped>
+    .hero {
+
+    }
+</style>
