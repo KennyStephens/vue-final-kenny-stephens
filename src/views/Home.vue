@@ -1,5 +1,5 @@
 <template>
-    <div class="hero is">
+    <div class="hero">
         <div class="hero-body">
             <div class="container">
                 <h1 class="title is-1">hello</h1>
@@ -15,7 +15,5 @@
 </script>
 
 <style scoped>
-    .hero {
 
-    }
 </style>
