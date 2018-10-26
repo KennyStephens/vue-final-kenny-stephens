@@ -13,7 +13,7 @@
             class="box has-text-centered">
                <img 
                :src="you.picture.large"
-               class="image is-rounded">
+               class="image is-rounded is-block ma-auto">
                {{ you.gender }} - {{ you.name.first }} - {{ you.email }}
                   
                 </div>
