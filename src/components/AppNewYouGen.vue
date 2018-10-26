@@ -11,10 +11,12 @@
             v-for="you in newYouData" 
             :key="you.name.first"
             class="box has-text-centered">
-               <img 
-               :src="you.picture.large"
-               class="image is-rounded is-block ma-auto">
-               {{ you.gender }} - {{ you.name.first }} - {{ you.email }}
+                <figure class="image is-128x128 ma-auto">
+                    <img 
+                        :src="you.picture.large">
+                </figure>
+               
+               {{ you.gender }} - {{ you.name.first }} - {{ you.name.last }} - {{ you.email }}
                   
                 </div>
     </div>
