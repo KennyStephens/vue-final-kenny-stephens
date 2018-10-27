@@ -25,7 +25,7 @@
         <button 
             class="button is-block is-success mb-5 is-large ma-auto" 
             @click="newYouGen"
-            v-if="!loadingAnimation">Generate New You!</button>
+            v-if="!loadingAnimation">Generate the New You!</button>
             <transition name="fade">
             <div v-if="loadingAnimation">
                 <h1 class="title has-text-centered mb-0">GENERATING...</h1>
