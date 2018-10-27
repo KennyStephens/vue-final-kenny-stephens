@@ -137,5 +137,9 @@ export default {
 figure {
   min-width: 200px;
 }
+
+figure img {
+    box-shadow: 0px 3px 5px #666;
+}
 </style>
 
