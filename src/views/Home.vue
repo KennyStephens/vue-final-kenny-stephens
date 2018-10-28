@@ -2,12 +2,10 @@
     <div class="hero is-fullheight">
         <div class="hero-body">
             <div class="container">
+                <app-intro-questions @questionAnswers="questionAnswers = $event"></app-intro-questions>
                 
-                <h1 class="is-size-1 has-text-centered has-text-primary has-text-weight-semibold">Welcome to NewYou</h1>
+                <h1 class="is-size-1 has-text-centered has-text-weight-semibold">Welcome <span class="has-text-primary">{{ questionAnswers.firstName }} {{questionAnswers.lastName}}</span> to NewYou</h1>
                 <h1 class="subtitle has-text-centered is-size-4">Are you sick of your current life? Want to start <span class="has-text-success is-size-3 has-text-weight-semibold">fresh</span>? Well you've come to the right place. Here at NewYou, the possibilities are endless and the wait time is short. Go ahead click the NewYou Generator and become the new you.</h1>
-                <p class="has-text-centered is-size-4">First give us a little bit of info.</p>
-                <hr class="is-text-primary">
-
                 <app-new-you-gen></app-new-you-gen>
             </div>
         </div>
@@ -16,10 +14,20 @@
 
 <script>
     import AppNewYouGen from '../components/AppNewYouGen.vue'
+    import AppIntroQuestions from '../components/AppIntroQuestions.vue'
 
     export default {
         components: {
-            AppNewYouGen
+            AppNewYouGen,
+            AppIntroQuestions
+        },
+        data() {
+            return {
+                questionAnswers: {
+                    firstName: '',
+                    lastName: '',
+                }
+            }
         }
     }
 </script>

@@ -1,14 +1,13 @@
 <template>
     <div class="container">
        
-    <div class="columns">
+                 <div class="columns">
             <div class="column">
                 <div class="field">
                     <label class="label">Gender</label>
                     <div class="control">
                         <div class="select is-primary">
                             <select>
-                            <option>Gender</option>
                             <option>Male</option>
                             <option>Female</option>
                             </select>
@@ -39,6 +38,7 @@
                     class="image ma-auto pa-2 mb-5 is-128x128">
             </div>
             </transition>
+            
             <ul>
                 <transition-group name="list" tag="div">
                 <li  v-for="you in newYouData" 
