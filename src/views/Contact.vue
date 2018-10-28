@@ -1,7 +1,7 @@
 <template>
     <div class="hero is-fullheight">
         <div class="hero-body">
-            <div class="container">
+            <div class="container box has-background-light">
               <section class="mb-5">
                 <h1 class="is-size-1 has-text-centered has-text-primary has-text-weight-semibold">Questions or Concerns?</h1>
                 <h1 class="subtitle has-text-centered is-size-4">Shoot us an email and we'll get back to you ASAP!</h1>
