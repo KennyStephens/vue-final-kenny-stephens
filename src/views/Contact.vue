@@ -2,14 +2,16 @@
     <div class="hero is-fullheight">
         <div class="hero-body">
             <div class="container">
-                
+              <section class="mb-5">
                 <h1 class="is-size-1 has-text-centered has-text-primary has-text-weight-semibold">Questions or Concerns?</h1>
-                <h1 class="subtitle has-text-centered is-size-4 email-primary">Shoot us an email and we'll get back to you ASAP!</h1>
+                <h1 class="subtitle has-text-centered is-size-4">Shoot us an email and we'll get back to you ASAP!</h1>
+              </section>
                 
-                <section class="pa-4 box hvr-bounce-to-top has-background-link">
+                
+                <section class="email-section pa-5 box hvr-bounce-to-top has-background-link">
                   
                   <h1 class="subtitle has-text-centered is-size-4 email-primary has-text-light">EMAIL US!</h1>
-                  <h1 class="subtitle has-text-centered is-size-4 email-secondary has-text-light">newyou@gmail.com</h1>
+                  <a href="mailto:newyousupport@newyou.com"><h1 class="subtitle has-text-centered is-size-4 email-secondary has-text-light">newyousupport@newyou.com</h1></a>
                   
                 </section>
             </div>
@@ -29,32 +31,32 @@ export default {
 </script>
 
 <style scoped>
-  section {
+  .email-section {
     position: relative;
   }
 
+  .email-section:hover {
+    cursor: pointer;
+  }
   .email-primary, .email-secondary {
     position: absolute;
-    margin-left: auto;
-    margin-right: auto;
-    left: 0;
-    right: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.2s ease-in-out;
   }
 
   .email-secondary {
     opacity: 0;
     position: absolute;
-    transition: opacity 1;
   }
 
-  section:hover .email-primary {
+  .email-section:hover .email-primary {
     opacity: 0;
-    transition: opacity .5;
   }
 
-  section:hover .email-secondary {
+  .email-section:hover .email-secondary {
     opacity: 1;
-    
   }
 
   /* Bounce To Top */
