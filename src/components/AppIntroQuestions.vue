@@ -17,11 +17,11 @@
        <div 
         class="select mb-4" 
         v-if="questionCounter === 3 ? true : false"
-        style="width: 100%;">
+        :style="{width: '100%'}">
         <select
           class="is-primary"
           v-model="questionAnswers.gender"
-          style="width: 100%;">
+          :style="{width: '100%'}">
         <option v-for="(gender, i) in genders" :key="i">{{ gender }}</option>
         </select>
        </div>
