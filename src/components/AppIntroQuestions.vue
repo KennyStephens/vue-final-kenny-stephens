@@ -14,6 +14,20 @@
           type="text" 
           placeholder="Last Name"
           v-model="questionAnswers.lastName">
+       <div 
+        class="select mb-4" 
+        v-if="questionCounter === 3 ? true : false"
+        style="width: 100%;">
+        <select
+          class="is-primary"
+          v-model="questionAnswers.gender"
+          style="width: 100%;">
+        <option v-for="(gender, i) in genders" :key="i">{{ gender }}</option>
+        </select>
+       </div>
+           
+       
+                
      <a class="button is-primary is-block has-text-centered" @click="changeQuestion">
        <span>NEXT</span>
     <span class="icon">
@@ -25,6 +39,8 @@
 </template>
 
 <script>
+import { eventBus } from '../main';
+
 export default {
   data() {
     return {
@@ -32,12 +48,15 @@ export default {
         {question: 'Welcome to NewYou! Please answer a couple of questions before we get started.'},
         {question: 'What is your first name?', label: 'First Name'},
         {question: 'What is your last name?', label: 'Last Name'},
+        {question: 'What is your gender?', label: 'Gender'},
         {question: 'Thanks!'}
       ],
       questionCounter: 0,
+      genders: ['Male', 'Female'],
       questionAnswers: {
         firstName: '',
-        lastName: ''
+        lastName: '',
+        gender: ''
       }
     }
   },
@@ -49,6 +68,8 @@ export default {
         
       } else {
        this.$emit('questionAnswers', this.questionAnswers);
+       eventBus.$emit('genderAnswer', this.questionAnswers.gender);
+       
        document.querySelector('.intro-questions').style.display = 'none';
      }
      
@@ -68,6 +89,7 @@ export default {
     opacity: .95;
     width: 600px
   }
+
 </style>
 
 

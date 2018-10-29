@@ -25,7 +25,7 @@
             return {
                 questionAnswers: {
                     firstName: '',
-                    lastName: '',
+                    lastName: ''
                 }
             }
         }

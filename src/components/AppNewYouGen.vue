@@ -2,21 +2,8 @@
     <div class="container">
        
                  <div class="columns">
-            <div class="column">
-                <div class="field">
-                    <label class="label">Gender</label>
-                    <div class="control">
-                        <div class="select is-primary">
-                            <select>
-                            <option>Male</option>
-                            <option>Female</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-            </div>
                 <div class="column">
-                <div class="field">
+                <div class="field results">
                     <label class="label">Number of Results Requested</label>
   <div class="control">
     <input class="input is-primary" type="number" placeholder="Put Number Here">
@@ -89,19 +76,28 @@
 
 <script>
 import axios from "axios";
+import { eventBus } from '../main';
 
 export default {
   data() {
     return {
       newYouData: [],
-      loadingAnimation: false
+      loadingAnimation: false,
+      gender: ''
     };
   },
+    created() {
+        console.log('created');
+        eventBus.$on('genderAnswer', gender => {
+            this.gender = gender;
+            console.log(this.gender);
+        });
+      },
   methods: {
     newYouGen() {
-        let gender = document.querySelector('select').value.toLowerCase();
-        let resultNumber = document.querySelector('input').value
-        console.log(gender.toLowerCase());
+        let gender = this.gender.toLowerCase();
+        let resultNumber = document.querySelector('input').value;
+        
       this.loadingAnimation = true;
       setTimeout(() => {
         this.loadingAnimation = false;
@@ -109,13 +105,14 @@ export default {
           .get(`https://randomuser.me/api/?results=${resultNumber}&gender=${gender}`)
           .then(response => {
             this.newYouData = response.data.results;
-            console.log(this.newYouData);
+            // console.log(this.newYouData);
           })
           .catch(error => {
             console.log(error);
           });
       }, 3000);
     }
+
   }
 };
 </script>
@@ -151,6 +148,12 @@ figure {
 
 figure img {
     box-shadow: 0px 3px 5px #666;
+}
+
+.results {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 </style>
 
