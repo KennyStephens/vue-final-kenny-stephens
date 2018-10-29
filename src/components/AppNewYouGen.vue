@@ -76,33 +76,35 @@
 
 <script>
 import axios from "axios";
-import { eventBus } from '../main';
+import { eventBus } from "../main";
 
 export default {
   data() {
     return {
       newYouData: [],
       loadingAnimation: false,
-      gender: ''
+      gender: ""
     };
   },
-    created() {
-        console.log('created');
-        eventBus.$on('genderAnswer', gender => {
-            this.gender = gender;
-            console.log(this.gender);
-        });
-      },
+  created() {
+    console.log("created");
+    eventBus.$on("genderAnswer", gender => {
+      this.gender = gender;
+      console.log(this.gender);
+    });
+  },
   methods: {
     newYouGen() {
-        let gender = this.gender.toLowerCase();
-        let resultNumber = document.querySelector('input').value;
-        
+      let gender = this.gender.toLowerCase();
+      let resultNumber = document.querySelector("input").value;
+
       this.loadingAnimation = true;
       setTimeout(() => {
         this.loadingAnimation = false;
         axios
-          .get(`https://randomuser.me/api/?results=${resultNumber}&gender=${gender}`)
+          .get(
+            `https://randomuser.me/api/?results=${resultNumber}&gender=${gender}`
+          )
           .then(response => {
             this.newYouData = response.data.results;
             // console.log(this.newYouData);
@@ -112,7 +114,6 @@ export default {
           });
       }, 3000);
     }
-
   }
 };
 </script>
@@ -147,13 +148,13 @@ figure {
 }
 
 figure img {
-    box-shadow: 0px 3px 5px #666;
+  box-shadow: 0px 3px 5px #666;
 }
 
 .results {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 </style>
 

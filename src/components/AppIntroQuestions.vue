@@ -39,57 +39,55 @@
 </template>
 
 <script>
-import { eventBus } from '../main';
+import { eventBus } from "../main";
 
 export default {
   data() {
     return {
       introQuestions: [
-        {question: 'Welcome to NewYou! Please answer a couple of questions before we get started.'},
-        {question: 'What is your first name?', label: 'First Name'},
-        {question: 'What is your last name?', label: 'Last Name'},
-        {question: 'What is your gender?', label: 'Gender'},
-        {question: 'Thanks!'}
+        {
+          question:
+            "Welcome to NewYou! Please answer a couple of questions before we get started."
+        },
+        { question: "What is your first name?", label: "First Name" },
+        { question: "What is your last name?", label: "Last Name" },
+        { question: "What is your gender?", label: "Gender" },
+        { question: "Thanks!" }
       ],
       questionCounter: 0,
-      genders: ['Male', 'Female'],
+      genders: ["Male", "Female"],
       questionAnswers: {
-        firstName: '',
-        lastName: '',
-        gender: ''
+        firstName: "",
+        lastName: "",
+        gender: ""
       }
-    }
+    };
   },
   methods: {
-    
     changeQuestion() {
-      if(this.questionCounter < this.introQuestions.length -1) {
+      if (this.questionCounter < this.introQuestions.length - 1) {
         this.questionCounter++;
-        
       } else {
-       this.$emit('questionAnswers', this.questionAnswers);
-       eventBus.$emit('genderAnswer', this.questionAnswers.gender);
-       
-       document.querySelector('.intro-questions').style.display = 'none';
-     }
-     
- 
+        this.$emit("questionAnswers", this.questionAnswers);
+        eventBus.$emit("genderAnswer", this.questionAnswers.gender);
+
+        document.querySelector(".intro-questions").style.display = "none";
+      }
     }
   }
-}
+};
 </script>
 
 <style scoped>
-  .intro-questions {
-    position: absolute;
-    z-index: 1;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    opacity: .95;
-    width: 600px
-  }
-
+.intro-questions {
+  position: absolute;
+  z-index: 1;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.95;
+  width: 600px;
+}
 </style>
 
 
