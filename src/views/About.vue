@@ -1,10 +1,10 @@
 <template>
   <div class="about">
     <h1>This is an about page</h1>
-    <button class="button" @click="fetchStuff">click</button>
+    <button class="button" @click="fetchLSData">click</button>
             <div class="columns main-section is-multiline is-centered">   
           <div 
-            v-for="(you, i) in stuff" 
+            v-for="(you, i) in retrievedData" 
             :key="i.first"
             class="column is-one-quarter box">
               <figure class="image ma-auto">
@@ -28,13 +28,13 @@
   export default {
     data() {
       return {
-        stuff: []
+        retrievedData: []
       }
     },
     methods: {
-      fetchStuff() {
-        this.stuff = localStorage.getItem('newYou');
-        console.log(this.stuff);
+      fetchLSData() {
+        this.retrievedData = JSON.parse(localStorage.getItem('newYouData'));
+        console.log(this.retrievedData);
       }
     }
   }
