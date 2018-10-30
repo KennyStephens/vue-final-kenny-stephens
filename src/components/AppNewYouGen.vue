@@ -87,11 +87,10 @@ export default {
       }, 3000);
     },
     favorited(i) {
-      // e.target.style.color = 'gold';
+      // i.target.style.color = 'gold';
       // console.log(this.newYouData[i]);
-      this.localStorageData = JSON.parse(localStorage.getItem('newYouData'));
+      // this.localStorageData = JSON.parse(localStorage.getItem('newYouData'));
       console.log(this.localStorageData);
-
       this.localStorageData.push(this.newYouData[i]);
       // console.log(this.localStorageData)
       localStorage.setItem('newYouData', JSON.stringify(this.localStorageData));
