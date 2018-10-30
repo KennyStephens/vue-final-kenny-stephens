@@ -1,6 +1,7 @@
 <template>
 <transition name="fade">
   <div v-if="showQuestions" class="section intro-questions has-background-info box">
+    <span @click="closeQuestions"><i class="fas fa-times-circle fa-2x is-pulled-right"></i></span>
         <p class="is-size-2 has-text-centered has-text-light has-text-weight-semibold">{{ introQuestions[questionCounter].question}}</p>
         <p class="label">{{ introQuestions[questionCounter].label }}</p>
         <input 
@@ -72,6 +73,9 @@ export default {
         eventBus.$emit("genderAnswer", this.questionAnswers.gender);
         this.showQuestions = false;
       }
+    },
+    closeQuestions() {
+      this.showQuestions = false;
     }
   }
 };
@@ -104,6 +108,17 @@ export default {
   .list-enter, .list-leave-to /* .list-leave-active below version 2.1.8 */ {
     opacity: 0;
     transform: translateX(-100px);
+  }
+
+  .fa-times-circle {
+    margin-top: -30px;
+    font-size: 18px;
+    margin-right: -10px;
+  }
+
+  .fa-times-circle:hover {
+    opacity: .7;
+    cursor: pointer;
   }
 </style>
 
