@@ -25,8 +25,8 @@
       </transition>
         <div class="columns main-section is-multiline is-centered">   
           <div 
-            v-for="you in newYouData" 
-            :key="you.name.first"
+            v-for="(you, i) in newYouData" 
+            :key="i.first"
             class="column is-one-quarter box">
               <figure class="image ma-auto">
                 <img 
@@ -38,6 +38,7 @@
                 <p class="has-text-centered">Your New Last Name: <br><span class="has-text-primary has-text-weight-semibold is-size-5">{{ you.name.last.toUpperCase() }}</span></p>
                 <p class="has-text-centered">Your New Age: <br><span class="has-text-primary has-text-weight-semibold is-size-5">{{ you.dob.age }}</span></p>
                 <p class="has-text-centered">Your New Email: <br><span class="has-text-primary has-text-weight-semibold is-size-5">{{ you.email }}</span></p>  
+                <span @click="favorited(i)"><i class="fas fa-star is-pulled-right"></i></span>
               </div>
           </div>
         </div>
@@ -57,10 +58,10 @@ export default {
     };
   },
   created() {
-    console.log("created");
+    // console.log("created");
     eventBus.$on("genderAnswer", gender => {
       this.gender = gender;
-      console.log(this.gender);
+      // console.log(this.gender);
     });
   },
   methods: {
@@ -83,6 +84,11 @@ export default {
             console.log(error);
           });
       }, 3000);
+    },
+    favorited(i) {
+      // e.target.style.color = 'gold';
+      console.log(this.newYouData[i]);
+      localStorage.setItem('newYou', JSON.stringify(this.newYouData[i]));
     }
   }
 };
@@ -119,6 +125,10 @@ figure img {
   box-shadow: 0px 3px 5px #666;
   position: relative;
   bottom: 90px;
+}
+
+.fa-star {
+  cursor: pointer;
 }
 
 .user-content {
