@@ -88,12 +88,20 @@ export default {
     },
     favorited(i) {
       // i.target.style.color = 'gold';
-      // console.log(this.newYouData[i]);
-      // this.localStorageData = JSON.parse(localStorage.getItem('newYouData'));
+
+      if(localStorage.getItem('newYouData') === null) {
+        this.localStorageData.push(this.newYouData[i]);
+        localStorage.setItem('newYouData', JSON.stringify(this.localStorageData));
+      } else {
+        this.localStorageData = JSON.parse(localStorage.getItem('newYouData'));
+        localStorage.setItem('newYouData', JSON.stringify(this.localStorageData));
+      }
+      
+      
       console.log(this.localStorageData);
-      this.localStorageData.push(this.newYouData[i]);
-      // console.log(this.localStorageData)
-      localStorage.setItem('newYouData', JSON.stringify(this.localStorageData));
+      
+     
+      
     }
   }
 };

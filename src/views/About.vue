@@ -1,5 +1,5 @@
 <template>
-  <div class="about">
+  <div class="about container">
     <h1>This is an about page</h1>
     <button class="button" @click="fetchLSData">click</button>
             <div class="columns main-section is-multiline is-centered">   
