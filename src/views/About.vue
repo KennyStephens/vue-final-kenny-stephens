@@ -1,6 +1,6 @@
 <template>
   <div class="about container">
-    <h1 class="is-size-1 has-text-centered has-text-weight-semibold">Your Favorite NewYous!</h1>
+    <h1 class="is-size-1 has-text-centered has-text-weight-semibold">Your Favorite <span class="has-text-primary">NewYous!</span></h1>
     <hr>
       <div class="columns main-section is-multiline is-centered">   
         <div 
