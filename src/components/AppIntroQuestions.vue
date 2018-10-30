@@ -1,5 +1,6 @@
 <template>
-  <div class="section intro-questions has-background-info box">
+<transition name="fade">
+  <div v-if="showQuestions" class="section intro-questions has-background-info box">
         <p class="is-size-2 has-text-centered has-text-light has-text-weight-semibold">{{ introQuestions[questionCounter].question}}</p>
         <p class="label">{{ introQuestions[questionCounter].label }}</p>
         <input 
@@ -36,6 +37,7 @@
     
   </a>
   </div>
+</transition>
 </template>
 
 <script>
@@ -55,6 +57,7 @@ export default {
         { question: "Thanks!" }
       ],
       questionCounter: 0,
+      showQuestions : true,
       genders: ["Male", "Female"],
       questionAnswers: {
         firstName: "",
@@ -71,7 +74,8 @@ export default {
         this.$emit("questionAnswers", this.questionAnswers);
         eventBus.$emit("genderAnswer", this.questionAnswers.gender);
 
-        document.querySelector(".intro-questions").style.display = "none";
+        // 
+        this.showQuestions = false;
       }
     }
   }
@@ -87,6 +91,24 @@ export default {
   transform: translate(-50%, -50%);
   opacity: 0.95;
   width: 600px;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.7s;
+}
+
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
+
+.list-enter-active,
+.list-leave-active {
+  transition: all 0.7s;
+}
+.list-enter, .list-leave-to /* .list-leave-active below version 2.1.8 */ {
+  opacity: 0;
+  transform: translateX(-100px);
 }
 </style>
 
