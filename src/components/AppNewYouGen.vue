@@ -100,12 +100,6 @@ export default {
         localStorage.setItem('newYouData', JSON.stringify(this.localStorageData));
         // console.log(this.localStorageData);
       }
-      
-      
-      
-      
-     
-      
     }
   }
 };

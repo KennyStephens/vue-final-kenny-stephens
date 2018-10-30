@@ -17,6 +17,7 @@
               <p class="has-text-centered">Your New Last Name: <br><span class="has-text-primary has-text-weight-semibold is-size-5">{{ you.name.last.toUpperCase() }}</span></p>
               <p class="has-text-centered">Your New Age: <br><span class="has-text-primary has-text-weight-semibold is-size-5">{{ you.dob.age }}</span></p>
               <p class="has-text-centered">Your New Email: <br><span class="has-text-primary has-text-weight-semibold is-size-5">{{ you.email }}</span></p>  
+              <span @click="deleteFavorited(i)"><i class="fas fa-user-minus is-pulled-right"></i></span>
             </div>
           </div>
         </div>
@@ -33,6 +34,13 @@
     methods: {
       fetchLSData() {
         this.retrievedData = JSON.parse(localStorage.getItem('newYouData'));
+        console.log(this.retrievedData);
+      },
+      deleteFavorited(i) {
+        this.retrievedData = JSON.parse(localStorage.getItem('newYouData'));
+        this.retrievedData.splice(i, 1);
+        
+        localStorage.setItem('newYouData', JSON.stringify(this.retrievedData));
         console.log(this.retrievedData);
       }
     },
@@ -63,6 +71,14 @@ figure img {
 
 .user-content {
   margin-top: -70px;
+}
+
+.fa-user-minus {
+  cursor: pointer;
+}
+
+.fa-user-minus:hover {
+  color: red;
 }
 </style>
 
