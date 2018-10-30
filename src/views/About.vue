@@ -34,14 +34,13 @@
     methods: {
       fetchLSData() {
         this.retrievedData = JSON.parse(localStorage.getItem('newYouData'));
-        console.log(this.retrievedData);
+        // console.log(this.retrievedData);
       },
       deleteFavorited(i) {
         this.retrievedData = JSON.parse(localStorage.getItem('newYouData'));
         this.retrievedData.splice(i, 1);
-        
         localStorage.setItem('newYouData', JSON.stringify(this.retrievedData));
-        console.log(this.retrievedData);
+        // console.log(this.retrievedData);
       }
     },
     beforeMount() {
