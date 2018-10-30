@@ -87,17 +87,18 @@ export default {
       }, 3000);
     },
     favorited(i) {
-      // i.target.style.color = 'gold';
+      console.log(i, event);
+      event.target.style.color = 'gold';
 
       if(localStorage.getItem('newYouData') === null) {
         this.localStorageData.push(this.newYouData[i]);
         localStorage.setItem('newYouData', JSON.stringify(this.localStorageData));
-        console.log(this.localStorageData);
+        // console.log(this.localStorageData);
       } else {
         this.localStorageData = JSON.parse(localStorage.getItem('newYouData'));
         this.localStorageData.push(this.newYouData[i]);
         localStorage.setItem('newYouData', JSON.stringify(this.localStorageData));
-        console.log(this.localStorageData);
+        // console.log(this.localStorageData);
       }
       
       
