@@ -23,25 +23,24 @@
               class="image ma-auto pa-2 mb-5 is-128x128">
       </div>
       </transition>
-      
-      <ul>    
-        <div class="columns is-multiline">   
-          <li 
+        <div class="columns main-section is-multiline is-centered">   
+          <div 
             v-for="you in newYouData" 
             :key="you.name.first"
-            class="column is-one-third box">
+            class="column is-one-quarter box">
               <figure class="image ma-auto">
                 <img 
-                    class="is-rounded "
+                    class="is-rounded mb-3"
                     :src="you.picture.large">
               </figure>
-              <p class="has-text-centered mt-2">Your New First Name: <br><span class="has-text-primary has-text-weight-semibold is-size-4">{{ you.name.first.toUpperCase() }}</span></p>
-              <p class="has-text-centered">Your New Last Name: <br><span class="has-text-primary has-text-weight-semibold is-size-4">{{ you.name.last.toUpperCase() }}</span></p>
-              <p class="has-text-centered">Your New Age: <br><span class="has-text-primary has-text-weight-semibold is-size-4">{{ you.dob.age }}</span></p>
-              <p class="has-text-centered">Your New Email: <br><span class="has-text-primary has-text-weight-semibold is-size-4">{{ you.email }}</span></p>  
-          </li>
+              <div class="user-content">
+                <p class="has-text-centered">Your New First Name: <br><span class="has-text-primary has-text-weight-semibold is-size-5">{{ you.name.first.toUpperCase() }}</span></p>
+                <p class="has-text-centered">Your New Last Name: <br><span class="has-text-primary has-text-weight-semibold is-size-5">{{ you.name.last.toUpperCase() }}</span></p>
+                <p class="has-text-centered">Your New Age: <br><span class="has-text-primary has-text-weight-semibold is-size-5">{{ you.dob.age }}</span></p>
+                <p class="has-text-centered">Your New Email: <br><span class="has-text-primary has-text-weight-semibold is-size-5">{{ you.email }}</span></p>  
+              </div>
+          </div>
         </div>
-      </ul>
   </div>
 </template>
 
@@ -108,12 +107,22 @@ export default {
   transform: translateX(-100px);
 }
 
+.main-section .column {
+  margin: 100px 10px 10px 10px;
+}
+
 figure {
   max-width: 150px;
 }
 
 figure img {
   box-shadow: 0px 3px 5px #666;
+  position: relative;
+  bottom: 90px;
+}
+
+.user-content {
+  margin-top: -70px;
 }
 
 .results {
