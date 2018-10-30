@@ -1,27 +1,26 @@
 <template>
   <div class="about container">
-    <h1>This is an about page</h1>
-    <button class="button" @click="fetchLSData">click</button>
-            <div class="columns main-section is-multiline is-centered">   
-          <div 
-            v-for="(you, i) in retrievedData" 
-            :key="i.first"
-            class="column is-one-quarter box">
-              <figure class="image ma-auto">
-                <img 
-                    class="is-rounded mb-3"
-                    :src="you.picture.large">
-              </figure>
-              <div class="user-content">
-                <p class="has-text-centered">Your New First Name: <br><span class="has-text-primary has-text-weight-semibold is-size-5">{{ you.name.first.toUpperCase() }}</span></p>
-                <p class="has-text-centered">Your New Last Name: <br><span class="has-text-primary has-text-weight-semibold is-size-5">{{ you.name.last.toUpperCase() }}</span></p>
-                <p class="has-text-centered">Your New Age: <br><span class="has-text-primary has-text-weight-semibold is-size-5">{{ you.dob.age }}</span></p>
-                <p class="has-text-centered">Your New Email: <br><span class="has-text-primary has-text-weight-semibold is-size-5">{{ you.email }}</span></p>  
-              </div>
+    <h1 class="is-size-1 has-text-centered has-text-weight-semibold">Your Favorite NewYous!</h1>
+    <hr>
+      <div class="columns main-section is-multiline is-centered">   
+        <div 
+          v-for="(you, i) in retrievedData" 
+          :key="i.first"
+          class="column is-one-quarter box">
+            <figure class="image ma-auto">
+              <img 
+                class="is-rounded mb-3"
+                :src="you.picture.large">
+            </figure>
+            <div class="user-content">
+              <p class="has-text-centered">Your New First Name: <br><span class="has-text-primary has-text-weight-semibold is-size-5">{{ you.name.first.toUpperCase() }}</span></p>
+              <p class="has-text-centered">Your New Last Name: <br><span class="has-text-primary has-text-weight-semibold is-size-5">{{ you.name.last.toUpperCase() }}</span></p>
+              <p class="has-text-centered">Your New Age: <br><span class="has-text-primary has-text-weight-semibold is-size-5">{{ you.dob.age }}</span></p>
+              <p class="has-text-centered">Your New Email: <br><span class="has-text-primary has-text-weight-semibold is-size-5">{{ you.email }}</span></p>  
+            </div>
           </div>
         </div>
-
-  </div>
+    </div>
 </template>
 
 <script>
@@ -36,6 +35,9 @@
         this.retrievedData = JSON.parse(localStorage.getItem('newYouData'));
         console.log(this.retrievedData);
       }
+    },
+    beforeMount() {
+      this.fetchLSData();
     }
   }
 </script>

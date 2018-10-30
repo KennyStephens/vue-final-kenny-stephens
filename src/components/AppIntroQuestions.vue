@@ -47,10 +47,7 @@ export default {
   data() {
     return {
       introQuestions: [
-        {
-          question:
-            "Welcome to NewYou! Please answer a couple of questions before we get started."
-        },
+        { question: "Welcome to NewYou! Please answer a couple of questions before we get started."},
         { question: "What is your first name?", label: "First Name" },
         { question: "What is your last name?", label: "Last Name" },
         { question: "What is your gender?", label: "Gender" },
@@ -73,8 +70,6 @@ export default {
       } else {
         this.$emit("questionAnswers", this.questionAnswers);
         eventBus.$emit("genderAnswer", this.questionAnswers.gender);
-
-        // 
         this.showQuestions = false;
       }
     }
@@ -83,33 +78,33 @@ export default {
 </script>
 
 <style scoped>
-.intro-questions {
-  position: absolute;
-  z-index: 1;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  opacity: 0.95;
-  width: 600px;
-}
+  .intro-questions {
+    position: absolute;
+    z-index: 1;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.95;
+    width: 600px;
+  }
 
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.7s;
-}
+  .fade-enter-active,
+  .fade-leave-active {
+    transition: opacity 0.7s;
+  }
 
-.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
-  opacity: 0;
-}
+  .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+    opacity: 0;
+  }
 
-.list-enter-active,
-.list-leave-active {
-  transition: all 0.7s;
-}
-.list-enter, .list-leave-to /* .list-leave-active below version 2.1.8 */ {
-  opacity: 0;
-  transform: translateX(-100px);
-}
+  .list-enter-active,
+  .list-leave-active {
+    transition: all 0.7s;
+  }
+  .list-enter, .list-leave-to /* .list-leave-active below version 2.1.8 */ {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
 </style>
 
 
