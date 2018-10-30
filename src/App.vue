@@ -22,6 +22,5 @@
 
 
 
-// -Add animiations as new person information is generated
-// -figure out how to round image
-// -move content from one view to the other
+// Change about page name
+// Don't let modal pop up after first time
