@@ -89,7 +89,7 @@ export default {
     favorited(i) {
       // i.target.style.color = 'gold';
       // console.log(this.newYouData[i]);
-      this.localStorageData = JSON.parse(localStorage.getItem('newYouData'));
+      // this.localStorageData = JSON.parse(localStorage.getItem('newYouData'));
       // console.log(this.localStorageData);
       this.localStorageData.push(this.newYouData[i]);
       // console.log(this.localStorageData)
