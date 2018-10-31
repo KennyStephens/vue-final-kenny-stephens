@@ -27,9 +27,7 @@
         <option v-for="(gender, i) in genders" :key="i">{{ gender }}</option>
         </select>
        </div>
-           
-       
-                
+                   
      <a class="button is-primary is-block has-text-centered" @click="changeQuestion">
       <span>NEXT</span>
       <span class="icon">
