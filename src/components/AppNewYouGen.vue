@@ -41,7 +41,8 @@
               <figure class="image ma-auto">
                 <img 
                     class="is-rounded mb-3"
-                    :src="you.picture.large">
+                    :src="you.picture.large"
+                    v-shadow>
               </figure>
               <div class="user-content">
                 <p class="has-text-centered">Your New First Name: <br><span class="has-text-primary has-text-weight-semibold is-size-5">{{ you.name.first.toUpperCase() }}</span></p>
@@ -149,7 +150,6 @@ figure {
 }
 
 figure img {
-  box-shadow: 0px 3px 5px #666;
   position: relative;
   bottom: 90px;
 }
