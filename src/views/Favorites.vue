@@ -1,11 +1,11 @@
 <template>
-  <div class="about container">
+  <div class="container">
     <h1 class="is-size-1 has-text-centered has-text-weight-semibold">Your Favorite <span class="has-text-primary">NewYous!</span></h1>
-    <hr>
-      <div class="columns main-section is-multiline is-centered">   
+    <hr> 
+        <transition-group name="list" tag="div" class="columns main-section is-multiline is-centered">  
         <div 
           v-for="(you, i) in retrievedData" 
-          :key="i.first"
+          :key="i"
           class="column is-one-quarter box">
             <figure class="image ma-auto">
               <img 
@@ -20,7 +20,7 @@
               <span @click="deleteFavorited(i)"><i class="fas fa-user-minus is-pulled-right"></i></span>
             </div>
           </div>
-        </div>
+        </transition-group> 
     </div>
 </template>
 
@@ -79,5 +79,18 @@ figure img {
 .fa-user-minus:hover {
   color: red;
 }
+
+.list-item {
+  display: inline-block;
+  margin-right: 10px;
+}
+.list-enter-active, .list-leave-active {
+  transition: all .5s;
+}
+.list-enter, .list-leave-to /* .list-leave-active below version 2.1.8 */ {
+  opacity: 0;
+  transform: translateY(15px);
+}
+
 </style>
 

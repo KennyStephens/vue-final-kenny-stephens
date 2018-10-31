@@ -1,5 +1,5 @@
 <template>
-<transition name="fade">
+<transition name="fade" appear>
   <div v-if="showQuestions" class="section intro-questions has-background-info box">
     <span @click="closeQuestions"><i class="fas fa-times-circle fa-2x is-pulled-right"></i></span>
         <p class="is-size-2 has-text-centered has-text-light has-text-weight-semibold">{{ introQuestions[questionCounter].question}}</p>
@@ -31,12 +31,11 @@
        
                 
      <a class="button is-primary is-block has-text-centered" @click="changeQuestion">
-       <span>NEXT</span>
-    <span class="icon">
+      <span>NEXT</span>
+      <span class="icon">
       <i class="fas fa-arrow-circle-right"></i>
-    </span>
-    
-  </a>
+      </span>
+    </a>
   </div>
 </transition>
 </template>

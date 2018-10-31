@@ -1,5 +1,12 @@
 <template>
   <div class="container">
+    <transition name="slide-fade">
+      <div 
+        v-show="addedToFavorites"
+        class="has-background-success add-to-favorites">
+        <h1 class="has-text-light has-text-centered has-text-weight-bold is-size-3">Added to Favorites!</h1>
+      </div>
+    </transition>
     <div class="columns">
       <div class="column">
         <div class="field results">
@@ -23,10 +30,13 @@
               class="image ma-auto pa-2 mb-5 is-128x128">
       </div>
       </transition>
-        <div class="columns main-section is-multiline is-centered">   
+        <transition-group 
+          name="list" 
+          tag="div" 
+          class="columns main-section is-multiline is-centered">   
           <div 
             v-for="(you, i) in newYouData" 
-            :key="i.first"
+            :key="i"
             class="column is-one-quarter box">
               <figure class="image ma-auto">
                 <img 
@@ -41,7 +51,7 @@
                 <span @click="favorited(i)"><i class="fas fa-star is-pulled-right"></i></span>
               </div>
           </div>
-        </div>
+        </transition-group>
   </div>
 </template>
 
@@ -55,7 +65,8 @@ export default {
       newYouData: [],
       loadingAnimation: false,
       gender: "",
-      localStorageData: []
+      localStorageData: [],
+      addedToFavorites: false
     };
   },
   created() {
@@ -89,6 +100,11 @@ export default {
     favorited(i) {
       console.log(i, event);
       event.target.style.color = 'gold';
+      this.addedToFavorites = true;
+      setTimeout(() => {
+        this.addedToFavorites = false;
+      },1500)
+      
 
       if(localStorage.getItem('newYouData') === null) {
         this.localStorageData.push(this.newYouData[i]);
@@ -111,7 +127,7 @@ export default {
   transition: opacity 0.2s;
 }
 
-.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+.fade-enter, .fade-leave-to/* .fade-leave-active below version 2.1.8 */ {
   opacity: 0;
 }
 
@@ -150,6 +166,30 @@ figure img {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.add-to-favorites {
+  max: 400px;
+  border-radius: 9px;
+  margin: 0 auto;
+  padding: 10px 20px;
+  opacity: .9;
+  position: fixed;
+  top: 200px;
+  z-index: 99;
+  left: 50%;
+  transform: translate(-50%, -50%)
+}
+
+.slide-fade-enter-active {
+  transition: all .3s ease;
+}
+.slide-fade-leave-active {
+  transition: all .8s;
+}
+.slide-fade-enter, .slide-fade-leave-to
+/* .slide-fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
 }
 
 </style>
