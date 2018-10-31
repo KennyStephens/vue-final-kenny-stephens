@@ -6,20 +6,26 @@
         <p class="is-size-2 has-text-centered has-text-light has-text-weight-semibold">{{ introQuestions[questionCounter].question}}</p>
         <p class="label">{{ introQuestions[questionCounter].label }}</p>
         <input 
-          class="input is-primary mb-4 first-name"
+          class="input is-primary mb-2 first-name"
           v-if="questionCounter === 1 ? true : false" 
           type="text" 
           placeholder="First Name"
           v-model="questionAnswers.firstName"
           required>
+          <transition name="slide-fade">
+          <p v-if="requiredInputFirst" class="has-text-danger has-text-weight-semibold">REQUIRED</p>
+          </transition>
         <input 
-          class="input is-primary mb-4 last-name"
+          class="input is-primary mb-2 last-name"
           v-if="questionCounter === 2 ? true : false"  
           type="text" 
           placeholder="Last Name"
           v-model="questionAnswers.lastName">
+          <transition name="slide-fade">
+          <p v-if="requiredInputLast" class="has-text-danger has-text-weight-semibold">REQUIRED</p>
+          </transition>
        <div 
-        class="select mb-4" 
+        class="select mb-2" 
         v-if="questionCounter === 3 ? true : false"
         :style="{width: '100%'}">
         <select
@@ -29,13 +35,14 @@
         <option v-for="(gender, i) in genders" :key="i">{{ gender }}</option>
         </select>
        </div>
-                   
-     <a class="button is-primary is-block has-text-centered" type="submit" @click="changeQuestion">
+     <transition name="slide-fade">              
+     <a class="button is-primary is-block has-text-centered" @click="changeQuestion" v-if="buttonDisplay">
       <span>NEXT</span>
       <span class="icon">
       <i class="fas fa-arrow-circle-right"></i>
       </span>
     </a>
+     </transition>
   </div>
 </transition>
 </form>
@@ -57,10 +64,13 @@ export default {
       questionCounter: 0,
       showQuestions : true,
       genders: ["Male", "Female"],
+      requiredInputFirst: false,
+      requiredInputLast: false,
+      buttonDisplay: true,
       questionAnswers: {
         firstName: "",
         lastName: "",
-        gender: ""
+        gender: "",
       }
     };
   },
@@ -76,6 +86,38 @@ export default {
     },
     closeQuestions() {
       this.showQuestions = false;
+    }
+  },
+  watch: {
+    questionCounter() {
+      if(this.questionCounter === 1) {
+        this.buttonDisplay = false;
+        this.requiredInputFirst = true;
+      } else if (this.questionCounter === 2) {
+          this.buttonDisplay = false;
+          this.requiredInputFirst = false;
+          this.requiredInputLast = true;
+      } 
+    },
+    'questionAnswers.firstName': function() {
+      console.log(this.questionAnswers.firstName);
+      if(this.questionAnswers.firstName.length > 0) {
+        this.requiredInputFirst = false;
+        this.buttonDisplay = true;
+      } else {
+        this.requiredInputFirst = true;
+        this.buttonDisplay = false;
+      }
+    },
+    'questionAnswers.lastName': function() {
+      console.log(this.questionAnswers.lastName);
+      if(this.questionAnswers.lastName.length > 0) {
+        this.requiredInputLast = false;
+        this.buttonDisplay = true;
+      } else {
+        this.requiredInputLast = true;
+        this.buttonDisplay = false;
+      }
     }
   }
 };
@@ -120,6 +162,21 @@ export default {
     opacity: .7;
     cursor: pointer;
   }
+
+  .slide-fade-enter-active {
+  transition: all .3s ease;
+  }
+
+  .slide-fade-leave-active {
+    transition: all .3s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+  }
+
+  .slide-fade-enter, .slide-fade-leave-to
+  /* .slide-fade-leave-active below version 2.1.8 */ {
+    transform: translateX(3px);
+    opacity: 0;
+  }
+
 </style>
 
 
