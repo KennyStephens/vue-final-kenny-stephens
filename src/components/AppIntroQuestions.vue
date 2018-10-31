@@ -1,4 +1,5 @@
 <template>
+<form>
 <transition name="fade" appear>
   <div v-if="showQuestions" class="section intro-questions has-background-info box">
     <span @click="closeQuestions"><i class="fas fa-times-circle fa-2x is-pulled-right"></i></span>
@@ -29,7 +30,7 @@
         </select>
        </div>
                    
-     <a class="button is-primary is-block has-text-centered" @click="changeQuestion">
+     <a class="button is-primary is-block has-text-centered" type="submit" @click="changeQuestion">
       <span>NEXT</span>
       <span class="icon">
       <i class="fas fa-arrow-circle-right"></i>
@@ -37,6 +38,7 @@
     </a>
   </div>
 </transition>
+</form>
 </template>
 
 <script>
