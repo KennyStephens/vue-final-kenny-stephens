@@ -12,7 +12,7 @@
         <div class="field results">
           <label class="label">Number of Results Requested</label>
             <div class="control">
-              <input class="input is-primary" type="number" placeholder="Put Number Here">
+              <input class="input is-primary" type="number" placeholder="Put Number Here" value="3">
             </div>
         </div>
       </div>

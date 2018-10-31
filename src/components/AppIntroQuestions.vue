@@ -63,6 +63,10 @@ export default {
   },
   methods: {
     changeQuestion() {
+      if(this.questionAnswers.firstName === '') {
+        console.log('empty');
+      }
+
       if (this.questionCounter < this.introQuestions.length - 1) {
         this.questionCounter++;
       } else {
