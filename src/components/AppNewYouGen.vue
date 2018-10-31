@@ -99,7 +99,7 @@ export default {
       }, 3000);
     },
     favorited(i) {
-      console.log(i, event);
+      // console.log(i, event);
       event.target.style.color = 'gold';
       this.addedToFavorites = true;
       setTimeout(() => {

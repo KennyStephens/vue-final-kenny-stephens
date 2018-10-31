@@ -9,7 +9,8 @@
           v-if="questionCounter === 1 ? true : false" 
           type="text" 
           placeholder="First Name"
-          v-model="questionAnswers.firstName">
+          v-model="questionAnswers.firstName"
+          required>
         <input 
           class="input is-primary mb-4 last-name"
           v-if="questionCounter === 2 ? true : false"  
