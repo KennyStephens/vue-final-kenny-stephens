@@ -13,7 +13,7 @@
           v-model="questionAnswers.firstName"
           required>
           <transition name="slide-fade">
-          <p v-if="requiredInputFirst" class="has-text-danger has-text-weight-semibold">REQUIRED</p>
+          <p v-if="requiredInputFirst" class="has-text-danger has-text-weight-semibold required">REQUIRED</p>
           </transition>
         <input 
           class="input is-primary mb-2 last-name"
@@ -22,7 +22,7 @@
           placeholder="Last Name"
           v-model="questionAnswers.lastName">
           <transition name="slide-fade">
-          <p v-if="requiredInputLast" class="has-text-danger has-text-weight-semibold">REQUIRED</p>
+          <p v-if="requiredInputLast" class="has-text-danger has-text-weight-semibold required">REQUIRED</p>
           </transition>
        <div 
         class="select mb-2" 
@@ -143,7 +143,8 @@ export default {
     left: 50%;
     transform: translate(-50%, -50%);
     opacity: 0.95;
-    width: 600px;
+    min-width: 500px;
+    max-width: 600px;
   }
 
   .fade-enter-active,
@@ -187,6 +188,13 @@ export default {
   /* .slide-fade-leave-active below version 2.1.8 */ {
     transform: translateX(3px);
     opacity: 0;
+  }
+
+  .required {
+    position: relative;
+    float: right;
+    bottom: 35px;
+    right: 8px;
   }
 
 </style>
