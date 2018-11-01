@@ -143,7 +143,7 @@ export default {
     left: 50%;
     transform: translate(-50%, -50%);
     opacity: 0.95;
-    width: 600px;
+    max-width: 600px;
   }
 
   .fade-enter-active,
