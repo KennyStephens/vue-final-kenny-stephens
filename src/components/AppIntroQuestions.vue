@@ -55,7 +55,7 @@ export default {
   data() {
     return {
       introQuestions: [
-        { question: "Welcome to NewYou! Please answer a couple of questions before we get started."},
+        { question: "Welcome to NewYou! Please answer a couple of questions to get started."},
         { question: "What is your first name?", label: "First Name" },
         { question: "What is your last name?", label: "Last Name" },
         { question: "What is your gender?", label: "Gender" },
