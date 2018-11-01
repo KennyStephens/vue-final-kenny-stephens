@@ -86,6 +86,15 @@ export default {
     },
     closeQuestions() {
       this.showQuestions = false;
+    },
+    loadQuestions() {
+      if(sessionStorage.getItem('loadQuestions') === null) {
+      this.showQuestions = true;
+      sessionStorage.setItem('loadQuestions', this.showQuestions);
+      console.log('Worked!');
+    } else {
+      this.showQuestions = false;
+    }
     }
   },
   watch: {
@@ -119,6 +128,9 @@ export default {
         this.buttonDisplay = false;
       }
     }
+  },
+  beforeMount() {
+    this.loadQuestions();
   }
 };
 </script>
