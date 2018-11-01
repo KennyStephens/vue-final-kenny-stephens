@@ -92,9 +92,9 @@ export default {
       this.showQuestions = true;
       sessionStorage.setItem('loadQuestions', this.showQuestions);
       console.log('Worked!');
-    } else {
-      this.showQuestions = false;
-    }
+      } else {
+        this.showQuestions = false;
+      }
     }
   },
   watch: {
