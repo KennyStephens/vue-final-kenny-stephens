@@ -38,6 +38,7 @@
       },
       deleteFavorited(i) {
         this.retrievedData = JSON.parse(localStorage.getItem('newYouData'));
+        console.log(this.retrievedData)
         this.retrievedData.splice(i, 1);
         localStorage.setItem('newYouData', JSON.stringify(this.retrievedData));
         // console.log(this.retrievedData);
