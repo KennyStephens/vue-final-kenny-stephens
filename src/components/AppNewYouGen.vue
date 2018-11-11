@@ -48,7 +48,7 @@
                 <p class="has-text-centered">Your New First Name: <br><span class="has-text-primary has-text-weight-semibold is-size-5">{{ you.name.first.toUpperCase() }}</span></p>
                 <p class="has-text-centered">Your New Last Name: <br><span class="has-text-primary has-text-weight-semibold is-size-5">{{ you.name.last.toUpperCase() }}</span></p>
                 <p class="has-text-centered">Your New Age: <br><span class="has-text-primary has-text-weight-semibold is-size-5">{{ you.dob.age }}</span></p>
-                <p class="has-text-centered">Your New Email: <br><span class="has-text-primary has-text-weight-semibold is-size-5">{{ you.email }}</span></p>  
+                <p class="has-text-centered">Your New Email: <br><span class="has-text-primary has-text-weight-semibold is-size-6">{{ you.email }}</span></p>  
                 <span @click="favorited(i)"><i class="fas fa-star is-pulled-right"></i></span>
               </div>
           </div>
