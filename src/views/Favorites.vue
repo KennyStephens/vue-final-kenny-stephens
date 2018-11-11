@@ -2,6 +2,7 @@
   <div class="container">
     <h1 class="is-size-1 has-text-centered has-text-weight-semibold">Your Favorite <span class="has-text-primary">NewYous!</span></h1>
     <hr> 
+    <p class="has-text-centered has-text-weight-semibold">Number of Favorites: <span>{{ numberOfFavorites }}</span></p>
         <transition-group name="list" tag="div" class="columns main-section is-multiline is-centered">  
         <div 
           v-for="(you, i) in retrievedData" 
@@ -46,6 +47,12 @@
     },
     beforeMount() {
       this.fetchLSData();
+    },
+    computed: {
+      numberOfFavorites() {
+        console.log(this.$store.getters.value);
+        return this.$store.getters.numberOfFavs;
+      }
     }
   }
 </script>
