@@ -3,7 +3,7 @@ import Vuex from "vuex";
 
 Vue.use(Vuex);
 
-let numOfFavorites = JSON.parse(localStorage.getItem('newYouData')).length;
+// let numOfFavorites = JSON.parse(localStorage.getItem('newYouData')).length;
 
 export default new Vuex.Store({
   state: {
