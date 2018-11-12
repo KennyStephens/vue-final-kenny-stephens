@@ -28,7 +28,3 @@
 </style>
 
 
-
-
-// Change about page name
-// Don't let modal pop up after first time
