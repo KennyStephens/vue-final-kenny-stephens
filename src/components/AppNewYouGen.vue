@@ -109,11 +109,13 @@ export default {
 
       if(localStorage.getItem('newYouData') === null) {
         this.localStorageData.push(this.newYouData[i]);
+        this.$store.state.value++;
         localStorage.setItem('newYouData', JSON.stringify(this.localStorageData));
         // console.log(this.localStorageData);
       } else {
         this.localStorageData = JSON.parse(localStorage.getItem('newYouData'));
-        this.localStorageData.push(this.newYouData[i]);       
+        this.localStorageData.push(this.newYouData[i]);      
+        this.$store.state.value++; 
         localStorage.setItem('newYouData', JSON.stringify(this.localStorageData));
         // console.log(this.localStorageData);
       }
