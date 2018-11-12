@@ -17,7 +17,8 @@
               <p class="has-text-centered">Your New First Name: <br><span class="has-text-primary has-text-weight-semibold is-size-5">{{ you.name.first.toUpperCase() }}</span></p>
               <p class="has-text-centered">Your New Last Name: <br><span class="has-text-primary has-text-weight-semibold is-size-5">{{ you.name.last.toUpperCase() }}</span></p>
               <p class="has-text-centered">Your New Age: <br><span class="has-text-primary has-text-weight-semibold is-size-5">{{ you.dob.age }}</span></p>
-              <p class="has-text-centered">Your New Email: <br><span class="has-text-primary has-text-weight-semibold is-size-6">{{ you.email }}</span></p>  
+              <p class="has-text-centered">Your New Email: <br><span class="has-text-primary has-text-weight-semibold is-size-6">{{ you.email }}</span></p> 
+              <a class="button is-success is-outlined is-medium is-block mb-3"><i class="fas fa-dollar-sign mr-2"></i>PURCHASE</a> 
               <span @click="deleteFavorited(i)"><i class="fas fa-user-minus is-pulled-right"></i></span>
             </div>
           </div>
