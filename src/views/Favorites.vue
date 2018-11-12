@@ -2,7 +2,7 @@
   <div class="container">
     <h1 class="is-size-1 has-text-centered has-text-weight-semibold">Your Favorite <span class="has-text-primary">NewYous!</span></h1>
     <hr> 
-    <p class="has-text-centered has-text-weight-semibold">Number of Favorites: <span>{{ numberOfFavs }}</span></p>
+    <p class="has-text-centered has-text-weight-semibold">Number of Favorites: <span>{{ value }}</span></p>
         <transition-group name="list" tag="div" class="columns main-section is-multiline is-centered">  
         <div 
           v-for="(you, i) in retrievedData" 
@@ -44,6 +44,7 @@
         this.retrievedData = JSON.parse(localStorage.getItem('newYouData'));
         // console.log(this.retrievedData)
         this.retrievedData.splice(i, 1);
+        this.$store.state.value--;
         localStorage.setItem('newYouData', JSON.stringify(this.retrievedData));
         // console.log(this.retrievedData);
       }
@@ -52,9 +53,12 @@
       this.fetchLSData();
     },
     computed: {
-      ...mapGetters([
-        'numberOfFavs'
-      ])      
+      // ...mapGetters([
+      //   'numberOfFavs'
+      // ])     
+      value() {
+        return this.$store.state.value;
+      } 
     }
   }
 </script>
