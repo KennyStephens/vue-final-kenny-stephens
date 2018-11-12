@@ -6,9 +6,9 @@ Vue.use(Vuex);
 // let numOfFavorites = JSON.parse(localStorage.getItem('newYouData')).length;
 
 export default new Vuex.Store({
-  state: {
-    value: numOfFavorites
-  },
+  // state: {
+  //   value: numOfFavorites
+  // },
   // getters: {
   //   numberOfFavs: state => {
   //     let numberOfFavorites = JSON.parse(localStorage.getItem('newYouData'));
