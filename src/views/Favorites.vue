@@ -2,12 +2,12 @@
   <div class="container">
     <h1 class="is-size-1 has-text-centered has-text-weight-semibold">Your Favorite <span class="has-text-primary">NewYous!</span></h1>
     <hr> 
-    <p class="has-text-centered has-text-weight-semibold">Number of Favorites: <span>{{ numberOfFavorites }}</span></p>
+    <p class="has-text-centered has-text-weight-semibold">Number of Favorites: <span>{{ numberOfFavs }}</span></p>
         <transition-group name="list" tag="div" class="columns main-section is-multiline is-centered">  
         <div 
           v-for="(you, i) in retrievedData" 
           :key="i"
-          class="column is-one-quarter box">
+          class="column is-one-quarter box pb-4">
             <figure class="image ma-auto">
               <img 
                 class="is-rounded mb-3"
@@ -27,6 +27,8 @@
 </template>
 
 <script>
+  import { mapGetters } from 'vuex';
+
   export default {
     data() {
       return {
@@ -40,7 +42,7 @@
       },
       deleteFavorited(i) {
         this.retrievedData = JSON.parse(localStorage.getItem('newYouData'));
-        console.log(this.retrievedData)
+        // console.log(this.retrievedData)
         this.retrievedData.splice(i, 1);
         localStorage.setItem('newYouData', JSON.stringify(this.retrievedData));
         // console.log(this.retrievedData);
@@ -50,10 +52,9 @@
       this.fetchLSData();
     },
     computed: {
-      numberOfFavorites() {
-        console.log(this.$store.getters.value);
-        return this.$store.getters.numberOfFavs;
-      }
+      ...mapGetters([
+        'numberOfFavs'
+      ])      
     }
   }
 </script>

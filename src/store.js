@@ -9,8 +9,8 @@ export default new Vuex.Store({
   },
   getters: {
     numberOfFavs: state => {
-      let numberOfFavs = JSON.parse(localStorage.getItem('newYouData'));
-      state.value = numberOfFavs.length;
+      let numberOfFavorites = JSON.parse(localStorage.getItem('newYouData'));
+      state.value = numberOfFavorites.length;
       return state.value
     }
   }
