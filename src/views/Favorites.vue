@@ -7,7 +7,7 @@
         <div 
           v-for="(you, i) in retrievedData" 
           :key="i"
-          class="column is-one-quarter box pb-4">
+          class="column is-one-quarter box pb-3">
             <figure class="image ma-auto">
               <img 
                 class="is-rounded mb-3"
@@ -18,7 +18,7 @@
               <p class="has-text-centered">Your New Last Name: <br><span class="has-text-primary has-text-weight-semibold is-size-5">{{ you.name.last.toUpperCase() }}</span></p>
               <p class="has-text-centered">Your New Age: <br><span class="has-text-primary has-text-weight-semibold is-size-5">{{ you.dob.age }}</span></p>
               <p class="has-text-centered">Your New Email: <br><span class="has-text-primary has-text-weight-semibold is-size-6">{{ you.email }}</span></p> 
-              <router-link to="/purchase"><a class="button is-success is-outlined is-medium is-block mb-3"><i class="fas fa-dollar-sign mr-2"></i>PURCHASE</a></router-link> 
+              <router-link to="/purchase"><a class="button is-success is-outlined is-block mb-3"><i class="fas fa-dollar-sign mr-2"></i>PURCHASE</a></router-link> 
               <span @click="deleteFavorited(i)"><i class="fas fa-user-minus is-pulled-right"></i></span>
             </div>
           </div>
