@@ -82,21 +82,22 @@ export default {
       let gender = this.gender.toLowerCase();
       let resultNumber = document.querySelector("input").value;
 
-      this.loadingAnimation = true;
-      setTimeout(() => {
-        this.loadingAnimation = false;
+      // this.loadingAnimation = true;
+      // setTimeout(() => {
+        this.loadingAnimation = true;
         axios
           .get(
             `https://randomuser.me/api/?results=${resultNumber}&gender=${gender}`
           )
           .then(response => {
             this.newYouData = response.data.results;
+            this.loadingAnimation = false;
             // console.log(this.newYouData);
           })
           .catch(error => {
             console.log(error);
           });
-      }, 3000);
+      // }, 3000);
     },
     favorited(i) {
       // console.log(i, event);
