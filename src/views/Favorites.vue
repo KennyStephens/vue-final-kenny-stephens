@@ -2,7 +2,7 @@
   <div class="container">
     <h1 class="is-size-1 has-text-centered has-text-weight-semibold">Your Favorite <span class="has-text-primary">NewYous!</span></h1>
     <hr> 
-    <p class="has-text-centered has-text-weight-semibold is-size-5">Number of Favorites: <span>{{ value }}</span></p>
+    <p class="has-text-centered has-text-weight-semibold is-size-5">Number of Favorites: <span>{{ numberOfFavs }}</span></p>
         <transition-group name="list" tag="div" class="columns main-section is-multiline is-centered">  
         <div 
           v-for="(you, i) in retrievedData" 
@@ -53,12 +53,12 @@
       this.fetchLSData();
     },
     computed: {
-      // ...mapGetters([
-      //   'numberOfFavs'
-      // ])     
-      value() {
-        return this.$store.state.value;
-      } 
+      ...mapGetters([
+        'numberOfFavs'
+      ]),     
+      // value() {
+      //   return this.$store.state.value;
+      // } 
     }
   }
 </script>

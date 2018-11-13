@@ -88,8 +88,8 @@ export default {
             `https://randomuser.me/api/?results=${resultNumber}&gender=${gender}`
           )
           .then(response => {
-            this.newYouData = response.data.results;
             this.loadingAnimation = false;
+            this.newYouData = response.data.results;
             // console.log(this.newYouData);
           })
           .catch(error => {
