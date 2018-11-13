@@ -82,8 +82,6 @@ export default {
       let gender = this.gender.toLowerCase();
       let resultNumber = document.querySelector("input").value;
 
-      // this.loadingAnimation = true;
-      // setTimeout(() => {
         this.loadingAnimation = true;
         axios
           .get(
@@ -97,7 +95,6 @@ export default {
           .catch(error => {
             console.log(error);
           });
-      // }, 3000);
     },
     favorited(i) {
       // console.log(i, event);

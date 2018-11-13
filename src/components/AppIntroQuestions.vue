@@ -91,7 +91,7 @@ export default {
       if(sessionStorage.getItem('loadQuestions') === null) {
       this.showQuestions = true;
       sessionStorage.setItem('loadQuestions', this.showQuestions);
-      console.log('Worked!');
+      // console.log('Worked!');
       } else {
         this.showQuestions = false;
       }
