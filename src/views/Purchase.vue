@@ -25,7 +25,7 @@
 <div class="field">
   <label class="label" for="textinput-2">Credit Card Number</label>
   <div class="control">
-    <input type="text" placeholder="1234-****-****-****" class="input " required="">
+    <input type="text" placeholder="1234-****-****-****" class="input" required="">
     
   </div>
 </div>

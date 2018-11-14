@@ -55,14 +55,17 @@ export default {
   data() {
     return {
       introQuestions: [
-        { question: "Welcome to NewYou! Please answer a couple of questions to get started."},
+        {
+          question:
+            "Welcome to NewYou! Please answer a couple of questions to get started."
+        },
         { question: "What is your first name?", label: "First Name" },
         { question: "What is your last name?", label: "Last Name" },
         { question: "What is your gender?", label: "Gender" },
         { question: "Thanks!" }
       ],
       questionCounter: 0,
-      showQuestions : true,
+      showQuestions: true,
       genders: ["Male", "Female"],
       requiredInputFirst: false,
       requiredInputLast: false,
@@ -70,7 +73,7 @@ export default {
       questionAnswers: {
         firstName: "",
         lastName: "",
-        gender: "",
+        gender: ""
       }
     };
   },
@@ -88,10 +91,10 @@ export default {
       this.showQuestions = false;
     },
     loadQuestions() {
-      if(sessionStorage.getItem('loadQuestions') === null) {
-      this.showQuestions = true;
-      sessionStorage.setItem('loadQuestions', this.showQuestions);
-      // console.log('Worked!');
+      if (sessionStorage.getItem("loadQuestions") === null) {
+        this.showQuestions = true;
+        sessionStorage.setItem("loadQuestions", this.showQuestions);
+        // console.log('Worked!');
       } else {
         this.showQuestions = false;
       }
@@ -99,18 +102,18 @@ export default {
   },
   watch: {
     questionCounter() {
-      if(this.questionCounter === 1) {
+      if (this.questionCounter === 1) {
         this.buttonDisplay = false;
         this.requiredInputFirst = true;
       } else if (this.questionCounter === 2) {
-          this.buttonDisplay = false;
-          this.requiredInputFirst = false;
-          this.requiredInputLast = true;
-      } 
+        this.buttonDisplay = false;
+        this.requiredInputFirst = false;
+        this.requiredInputLast = true;
+      }
     },
-    'questionAnswers.firstName': function() {
-      console.log(this.questionAnswers.firstName);
-      if(this.questionAnswers.firstName.length > 0) {
+    "questionAnswers.firstName": function() {
+      // console.log(this.questionAnswers.firstName);
+      if (this.questionAnswers.firstName.length > 0) {
         this.requiredInputFirst = false;
         this.buttonDisplay = true;
       } else {
@@ -118,9 +121,9 @@ export default {
         this.buttonDisplay = false;
       }
     },
-    'questionAnswers.lastName': function() {
-      console.log(this.questionAnswers.lastName);
-      if(this.questionAnswers.lastName.length > 0) {
+    "questionAnswers.lastName": function() {
+      // console.log(this.questionAnswers.lastName);
+      if (this.questionAnswers.lastName.length > 0) {
         this.requiredInputLast = false;
         this.buttonDisplay = true;
       } else {
@@ -136,67 +139,66 @@ export default {
 </script>
 
 <style scoped>
-  .intro-questions {
-    position: absolute;
-    z-index: 1;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    opacity: 0.95;
-    min-width: 500px;
-    max-width: 600px;
-  }
+.intro-questions {
+  position: absolute;
+  z-index: 1;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.95;
+  min-width: 500px;
+  max-width: 600px;
+}
 
-  .fade-enter-active,
-  .fade-leave-active {
-    transition: opacity 0.7s;
-  }
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.7s;
+}
 
-  .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
-    opacity: 0;
-  }
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
+}
 
-  .list-enter-active,
-  .list-leave-active {
-    transition: all 0.7s;
-  }
-  .list-enter, .list-leave-to /* .list-leave-active below version 2.1.8 */ {
-    opacity: 0;
-    transform: translateX(-100px);
-  }
+.list-enter-active,
+.list-leave-active {
+  transition: all 0.7s;
+}
+.list-enter, .list-leave-to /* .list-leave-active below version 2.1.8 */ {
+  opacity: 0;
+  transform: translateX(-100px);
+}
 
-  .fa-times-circle {
-    margin-top: -30px;
-    font-size: 18px;
-    margin-right: -10px;
-  }
+.fa-times-circle {
+  margin-top: -30px;
+  font-size: 18px;
+  margin-right: -10px;
+}
 
-  .fa-times-circle:hover {
-    opacity: .7;
-    cursor: pointer;
-  }
+.fa-times-circle:hover {
+  opacity: 0.7;
+  cursor: pointer;
+}
 
-  .slide-fade-enter-active {
-  transition: all .3s ease;
-  }
+.slide-fade-enter-active {
+  transition: all 0.3s ease;
+}
 
-  .slide-fade-leave-active {
-    transition: all .0s cubic-bezier(1.0, 0.5, 0.8, 1.0);
-  }
+.slide-fade-leave-active {
+  transition: all 0s cubic-bezier(1, 0.5, 0.8, 1);
+}
 
-  .slide-fade-enter, .slide-fade-leave-to
+.slide-fade-enter, .slide-fade-leave-to
   /* .slide-fade-leave-active below version 2.1.8 */ {
-    transform: translateX(3px);
-    opacity: 0;
-  }
+  transform: translateX(3px);
+  opacity: 0;
+}
 
-  .required {
-    position: relative;
-    float: right;
-    bottom: 35px;
-    right: 8px;
-  }
-
+.required {
+  position: relative;
+  float: right;
+  bottom: 35px;
+  right: 8px;
+}
 </style>
 
 
