@@ -36,7 +36,8 @@
         </select>
        </div>
      <transition name="slide-fade">              
-     <a class="button is-primary is-block has-text-centered" @click="changeQuestion" v-if="buttonDisplay">
+     <a 
+      class="button is-primary is-block has-text-centered" @click="changeQuestion" v-if="buttonDisplay">
       <span>NEXT</span>
       <span class="icon">
       <i class="fas fa-arrow-circle-right"></i>
@@ -113,7 +114,8 @@ export default {
     },
     "questionAnswers.firstName": function() {
       // console.log(this.questionAnswers.firstName);
-      if (this.questionAnswers.firstName.length > 0) {
+      if (this.questionAnswers.firstName.length > 0 &&  !this.questionAnswers.firstName.includes("1") &&  !this.questionAnswers.firstName.includes("2") &&  !this.questionAnswers.firstName.includes("3") &&  !this.questionAnswers.firstName.includes("4") &&  !this.questionAnswers.firstName.includes("5") &&  !this.questionAnswers.firstName.includes("6") &&  !this.questionAnswers.firstName.includes("7") &&  !this.questionAnswers.firstName.includes("8") &&  !this.questionAnswers.firstName.includes("9") &&  !this.questionAnswers.firstName.includes("0"))
+       {
         this.requiredInputFirst = false;
         this.buttonDisplay = true;
       } else {
@@ -123,7 +125,7 @@ export default {
     },
     "questionAnswers.lastName": function() {
       // console.log(this.questionAnswers.lastName);
-      if (this.questionAnswers.lastName.length > 0) {
+      if (this.questionAnswers.lastName.length > 0 &&  !this.questionAnswers.lastName.includes("1") &&  !this.questionAnswers.lastName.includes("2") &&  !this.questionAnswers.lastName.includes("3") &&  !this.questionAnswers.lastName.includes("4") &&  !this.questionAnswers.lastName.includes("5") &&  !this.questionAnswers.lastName.includes("6") &&  !this.questionAnswers.lastName.includes("7") &&  !this.questionAnswers.lastName.includes("8") &&  !this.questionAnswers.lastName.includes("9") &&  !this.questionAnswers.lastName.includes("0")) {
         this.requiredInputLast = false;
         this.buttonDisplay = true;
       } else {
