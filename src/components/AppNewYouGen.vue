@@ -33,7 +33,10 @@
         <transition-group 
           name="list" 
           tag="div" 
-          class="columns main-section is-multiline is-centered">   
+          class="columns main-section is-multiline is-centered">  
+          <!-- ================================
+          RENDERING OF LISTS
+          ==================================--> 
           <div 
             v-for="(you, i) in newYouData" 
             :key="i"
@@ -72,6 +75,9 @@ export default {
   },
   created() {
     // console.log("created");
+    /* ===========================
+    COMMUNICATION BETWEEN COMPONENTS
+    ============================== */
     eventBus.$on("genderAnswer", gender => {
       this.gender = gender;
       // console.log(this.gender);
@@ -83,6 +89,9 @@ export default {
       let resultNumber = document.querySelector("input").value;
 
         this.loadingAnimation = true;
+        /*=================================
+        CONNECTING TO SERVER
+        =================================*/
         axios
           .get(
             `https://randomuser.me/api/?results=${resultNumber}&gender=${gender}`

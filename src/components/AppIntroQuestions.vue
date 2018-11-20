@@ -102,6 +102,9 @@ export default {
     }
   },
   watch: {
+    /* =================================
+    FORM VALIDATION
+    ==================================*/
     questionCounter() {
       if (this.questionCounter === 1) {
         this.buttonDisplay = false;

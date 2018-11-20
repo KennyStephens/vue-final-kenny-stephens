@@ -1,1 +1,2 @@
-vue-final-kenny
+#Kenny Stephens - VUE.js Final Project - NewYou
+

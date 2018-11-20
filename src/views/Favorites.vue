@@ -3,6 +3,10 @@
     <h1 class="is-size-1 has-text-centered has-text-weight-semibold">Your Favorite <span class="has-text-primary">NewYous!</span></h1>
     <hr> 
     <p class="has-text-centered has-text-weight-semibold is-size-5">Number of Favorites: <span>{{ numberOfFavs }}</span></p>
+    <h1 v-if="noFavorites" class="is-size-2 has-text-centered has-text-weight-semibold">You currently don't have any favorites.</h1>
+        <!-- ================================
+        TRANSITIONS AND ANIMATIONS
+        ================================= -->
         <transition-group name="list" tag="div" class="columns main-section is-multiline is-centered">  
         <div 
           v-for="(you, i) in retrievedData" 
@@ -32,7 +36,8 @@
   export default {
     data() {
       return {
-        retrievedData: []
+        retrievedData: [],
+        noFavorites: true
       }
     },
     methods: {
@@ -59,6 +64,15 @@
       // value() {
       //   return this.$store.state.value;
       // } 
+    },
+    watch: {
+      retrievedData() {
+        if (this.retrievedData.length > 0) {
+          this.noFavorites = false;
+        } else {
+          this.noFavorites = true;
+        }
+      }
     }
   }
 </script>

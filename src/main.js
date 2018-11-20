@@ -5,6 +5,9 @@ import App from "./App.vue"
 import router from "./router"
 import store from "./store"
 
+/* ==================================
+MIXIN
+===================================*/
 Vue.directive('shadow', {
   bind(el) {
     el.style.boxShadow = '0px 3px 5px #666';
