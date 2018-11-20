@@ -14,3 +14,5 @@ These are used in multiple views and components
 Connected to randomuser.me API
 ##### - [Connect to at least 3 different routes](https://github.com/KennyStephens/vue-final-kenny-stephens/blob/master/src/router.js) 
 ##### - [State Management](https://github.com/KennyStephens/vue-final-kenny-stephens/blob/master/src/store.js) 
+
+All other requirements should be met based on the final project rubric.
