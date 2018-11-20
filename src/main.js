@@ -6,7 +6,7 @@ import router from "./router"
 import store from "./store"
 
 /* ==================================
-MIXIN
+CUSTOM DIRECTIVE
 ===================================*/
 Vue.directive('shadow', {
   bind(el) {
