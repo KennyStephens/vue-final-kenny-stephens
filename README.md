@@ -1,6 +1,6 @@
 # Kenny Stephens - VUE.js Final Project - NewYou
 
-### Here are some links to specific requirements
+### Here are some links to specific requirements:
 
 ##### - [4 Days of Commits](https://github.com/KennyStephens) 
 ##### - [Communication Between Components](https://github.com/KennyStephens/vue-final-kenny-stephens/blob/master/src/components/AppNewYouGen.vue) 
