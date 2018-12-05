@@ -4,7 +4,7 @@
       <div 
         v-show="addedToFavorites"
         class="has-background-success add-to-favorites">
-        <h1 class="has-text-light has-text-centered has-text-weight-bold is-size-3">Added to Favorites!</h1>
+        <h1 class="has-text-light has-text-centered has-text-weight-bold is-size-3">{{ addedToFavoritesText }}</h1>
       </div>
     </transition>
     <div class="columns">
@@ -70,7 +70,8 @@ export default {
       loadingAnimation: false,
       gender: "",
       localStorageData: [],
-      addedToFavorites: false
+      addedToFavorites: false,
+      addedToFavoritesText: 'Added to Favorites!'
     };
   },
   created() {
@@ -106,8 +107,9 @@ export default {
           });
     },
     favorited(i) {
-      // console.log(i, event);
+
       event.target.style.color = 'gold';
+
       this.addedToFavorites = true;
       setTimeout(() => {
         this.addedToFavorites = false;
