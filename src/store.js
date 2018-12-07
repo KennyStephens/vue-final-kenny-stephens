@@ -7,10 +7,11 @@ export default new Vuex.Store({
   state: {
     value: 0
   },
-  mutations: {
+  getters: {
     numberOfFavs: state => {
       const numberOfFavorites = JSON.parse(localStorage.getItem('newYouData'));
       state.value = numberOfFavorites.length;
+      return state.value
     }
   }
 });
