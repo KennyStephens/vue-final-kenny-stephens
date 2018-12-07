@@ -152,7 +152,7 @@ export default {
 .intro-questions {
   position: absolute;
   z-index: 1;
-  top: 40%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   opacity: 0.95;
