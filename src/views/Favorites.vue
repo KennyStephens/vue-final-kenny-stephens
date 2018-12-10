@@ -22,7 +22,7 @@
               <p class="has-text-centered">Your New Last Name: <br><span class="has-text-primary has-text-weight-semibold is-size-5">{{ you.name.last.toUpperCase() }}</span></p>
               <p class="has-text-centered">Your New Age: <br><span class="has-text-primary has-text-weight-semibold is-size-5">{{ you.dob.age }}</span></p>
               <p class="has-text-centered">Your New Email: <br><span class="has-text-primary has-text-weight-semibold is-size-6">{{ you.email }}</span></p> 
-              <a class="button is-success is-outlined is-block mb-3"><i class="fas fa-dollar-sign mr-2"></i>PURCHASE</a>
+              <a class="button is-success is-outlined is-block mb-3" @click="updatePurchased(i)"><i class="fas fa-dollar-sign mr-2"></i>PURCHASE</a>
               <span @click="deleteFavorited(i)"><i class="fas fa-user-minus is-pulled-right"></i></span>
             </div>
           </div>
@@ -31,7 +31,7 @@
 </template>
 
 <script>
-  import { mapGetters } from 'vuex';
+  import { mapGetters, mapMutations } from 'vuex';
 
   export default {
     data() {
@@ -52,6 +52,14 @@
         this.$store.state.value--;
         localStorage.setItem('newYouData', JSON.stringify(this.retrievedData));
         // console.log(this.retrievedData);
+      },
+      ...mapMutations([
+        'ADD_FIRST_NAME',
+        'ADD_LAST_NAME'
+      ]),
+      updatePurchased(i) {
+        this.$store.commit('ADD_FIRST_NAME', this.retrievedData[i].name.first);
+        this.$store.commit('ADD_LAST_NAME', this.retrievedData[i].name.last);
       }
     },
     beforeMount() {
