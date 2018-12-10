@@ -1,7 +1,12 @@
 <template>
     <div class="hero is-fullheight">
         <div class="hero-body">
-            <div class="container box has-background-light">
+            <div class="container box has-background-light is-block" style="width: 100%">
+              <section>
+                <h2 class="has-text-centered is-size-2">Your current purchased first name: <span class="has-text-primary">{{$store.state.firstName}}</span></h2>
+                <h2 class="has-text-centered is-size-2">Your current purchased first name: <span class="has-text-primary">{{$store.state.lastName}}</span></h2>
+              </section>
+            <hr class="has-background-info">
               <section class="mb-5">
                 <h1 class="is-size-1 has-text-centered has-text-primary has-text-weight-semibold">Questions or Concerns?</h1>
                 <h1 class="subtitle has-text-centered is-size-4">Shoot us an email and we'll get back to you ASAP!</h1>
