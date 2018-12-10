@@ -14,6 +14,6 @@ These are used in multiple views and components
 ##### - [Connect to HTTP Server](https://github.com/KennyStephens/vue-final-kenny-stephens/blob/master/src/components/AppNewYouGen.vue) 
 Connected to randomuser.me API
 ##### - [Connect to at least 3 different routes](https://github.com/KennyStephens/vue-final-kenny-stephens/blob/master/src/router.js) 
-##### - [State Management](https://github.com/KennyStephens/vue-final-kenny-stephens/blob/master/src/store.js) [Example](https://github.com/KennyStephens/vue-final-kenny-stephens/blob/master/src/views/Contact.vue)
+##### - [State Management](https://github.com/KennyStephens/vue-final-kenny-stephens/blob/master/src/store.js) | [Example](https://github.com/KennyStephens/vue-final-kenny-stephens/blob/master/src/views/Contact.vue)
 
 All other requirements should be met based on the final project rubric.
